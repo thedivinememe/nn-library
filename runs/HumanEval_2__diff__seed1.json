@@ -1,0 +1,259 @@
+{
+  "task_id": "HumanEval/2",
+  "entry_point": "truncate_number",
+  "strategy": "diff",
+  "seed": 1,
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.7,
+  "completed": true,
+  "iterations": 12,
+  "converged": false,
+  "convergence_reason": "max_iterations",
+  "final_nu": 0.33927251241548495,
+  "final_nu_raw": 0.1855,
+  "nu_trajectory": [
+    0.16169999999999995,
+    0.619272512415485,
+    0.46847251241548493,
+    0.4344725124154849,
+    0.5377725124154848,
+    0.558772512415485,
+    0.48527251241548486,
+    0.6160725124154849,
+    0.401472512415485,
+    0.889272512415485,
+    0.4344725124154849,
+    0.33927251241548495
+  ],
+  "nu_raw_trajectory": [
+    0.16169999999999995,
+    0.4655,
+    0.3147,
+    0.28069999999999995,
+    0.3839999999999999,
+    0.405,
+    0.3314999999999999,
+    0.46229999999999993,
+    0.24770000000000003,
+    0.7355,
+    0.28069999999999995,
+    0.1855
+  ],
+  "wall_time_seconds": 144.398744625,
+  "tokens_estimate": 16215,
+  "final_output": "```python\nimport math\n\ndef truncate_number(number: float) -> float:\n    \"\"\" Given a positive floating point number, it can be decomposed into\n    and integer part (largest integer smaller than given number) and decimals\n    (leftover part always smaller than 1).\n\n    Return the decimal part of the number.\n    >>> truncate_number(3.5)\n    0.5\n    \"\"\"\n    # math.modf is the standard library function for splitting a float\n    # into its fractional and integer parts\n    fractional, _ = math.modf(number)\n    return fractional\n```",
+  "final_code": "import math\n\ndef truncate_number(number: float) -> float:\n    \"\"\" Given a positive floating point number, it can be decomposed into\n    and integer part (largest integer smaller than given number) and decimals\n    (leftover part always smaller than 1).\n\n    Return the decimal part of the number.\n    >>> truncate_number(3.5)\n    0.5\n    \"\"\"\n    # math.modf is the standard library function for splitting a float\n    # into its fractional and integer parts\n    fractional, _ = math.modf(number)\n    return fractional",
+  "test_result": {
+    "passed": true,
+    "exit_code": 0,
+    "stderr_tail": "",
+    "timeout": false,
+    "error_class": null
+  },
+  "iteration_records": [
+    {
+      "iteration": 0,
+      "nu": 0.16169999999999995,
+      "nu_raw": 0.16169999999999995,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 1.0,
+      "convergence_check": {
+        "converged": false,
+        "reason": "insufficient_history",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 5.088989958000013
+    },
+    {
+      "iteration": 1,
+      "nu": 0.619272512415485,
+      "nu_raw": 0.4655,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.5800000000000001,
+      "def_ep": 0.41000000000000003,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.7688625620774248,
+      "output_diff_ratio": 0.08994708994709,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 6.751851250000016
+    },
+    {
+      "iteration": 2,
+      "nu": 0.46847251241548493,
+      "nu_raw": 0.3147,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.52,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.09018567639257291,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 5.426884749999999
+    },
+    {
+      "iteration": 3,
+      "nu": 0.4344725124154849,
+      "nu_raw": 0.28069999999999995,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.8280000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.05804749340369397,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 5.624177124999989
+    },
+    {
+      "iteration": 4,
+      "nu": 0.5377725124154848,
+      "nu_raw": 0.3839999999999999,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.6200000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.7701935111196687,
+      "output_diff_ratio": 0.05804749340369397,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 7.478016333999989
+    },
+    {
+      "iteration": 5,
+      "nu": 0.558772512415485,
+      "nu_raw": 0.405,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.56,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.8025177025963806,
+      "output_diff_ratio": 0.21530054644808738,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 7.278352250000012
+    },
+    {
+      "iteration": 6,
+      "nu": 0.48527251241548486,
+      "nu_raw": 0.3314999999999999,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7700000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.22185792349726774,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 6.453114833000001
+    },
+    {
+      "iteration": 7,
+      "nu": 0.6160725124154849,
+      "nu_raw": 0.46229999999999993,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.41000000000000003,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.831578182874573,
+      "output_diff_ratio": 0.371841155234657,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 9.077623417000012
+    },
+    {
+      "iteration": 8,
+      "nu": 0.401472512415485,
+      "nu_raw": 0.24770000000000003,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6559999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.3790613718411552,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 11.128471084000012
+    },
+    {
+      "iteration": 9,
+      "nu": 0.889272512415485,
+      "nu_raw": 0.7355,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.27,
+      "def_ep": 0.04999999999999999,
+      "def_proc": 0.556,
+      "conflict_score": 0.8855631821762121,
+      "output_diff_ratio": 0.505730659025788,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 14.599624708000022
+    },
+    {
+      "iteration": 10,
+      "nu": 0.4344725124154849,
+      "nu_raw": 0.28069999999999995,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.8280000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.46799431009957326,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 5.635530499999959
+    },
+    {
+      "iteration": 11,
+      "nu": 0.33927251241548495,
+      "nu_raw": 0.1855,
+      "nu_penalty": 0.15377251241548495,
+      "def_sem": 0.79,
+      "def_ep": 0.7100000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.25427350427350426,
+      "convergence_check": {
+        "converged": false,
+        "reason": "output_still_changing",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 11.423416125000017
+    }
+  ]
+}

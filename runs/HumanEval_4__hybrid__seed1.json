@@ -1,0 +1,259 @@
+{
+  "task_id": "HumanEval/4",
+  "entry_point": "mean_absolute_deviation",
+  "strategy": "hybrid",
+  "seed": 1,
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.7,
+  "completed": true,
+  "iterations": 12,
+  "converged": false,
+  "convergence_reason": "max_iterations",
+  "final_nu": 0.3266999999999999,
+  "final_nu_raw": 0.3266999999999999,
+  "nu_trajectory": [
+    0.3216999999999999,
+    0.1997,
+    0.1997,
+    0.1997,
+    0.3292999999999999,
+    0.19869999999999988,
+    0.28269999999999995,
+    0.1997,
+    0.27569999999999983,
+    0.1501999999999999,
+    0.1997,
+    0.3266999999999999
+  ],
+  "nu_raw_trajectory": [
+    0.3216999999999999,
+    0.1997,
+    0.1997,
+    0.1997,
+    0.3292999999999999,
+    0.19869999999999988,
+    0.28269999999999995,
+    0.1997,
+    0.27569999999999983,
+    0.1501999999999999,
+    0.1997,
+    0.3266999999999999
+  ],
+  "wall_time_seconds": 139.7456112499999,
+  "tokens_estimate": 16982,
+  "final_output": "```python\nfrom typing import List\n\n\ndef mean_absolute_deviation(numbers: List[float]) -> float:\n    \"\"\" For a given list of input numbers, calculate Mean Absolute Deviation\n    around the mean of this dataset.\n    Mean Absolute Deviation is the average absolute difference between each\n    element and a centerpoint (mean in this case):\n    MAD = average | x - x_mean |\n    >>> mean_absolute_deviation([1.0, 2.0, 3.0, 4.0])\n    1.0\n    \"\"\"\n    if not numbers:\n        raise ValueError(\"Input list must not be empty.\")\n    mean = sum(numbers) / len(numbers)\n    return sum(abs(x - mean) for x in numbers) / len(numbers)\n```",
+  "final_code": "from typing import List\n\n\ndef mean_absolute_deviation(numbers: List[float]) -> float:\n    \"\"\" For a given list of input numbers, calculate Mean Absolute Deviation\n    around the mean of this dataset.\n    Mean Absolute Deviation is the average absolute difference between each\n    element and a centerpoint (mean in this case):\n    MAD = average | x - x_mean |\n    >>> mean_absolute_deviation([1.0, 2.0, 3.0, 4.0])\n    1.0\n    \"\"\"\n    if not numbers:\n        raise ValueError(\"Input list must not be empty.\")\n    mean = sum(numbers) / len(numbers)\n    return sum(abs(x - mean) for x in numbers) / len(numbers)",
+  "test_result": {
+    "passed": true,
+    "exit_code": 0,
+    "stderr_tail": "",
+    "timeout": false,
+    "error_class": null
+  },
+  "iteration_records": [
+    {
+      "iteration": 0,
+      "nu": 0.3216999999999999,
+      "nu_raw": 0.3216999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.798,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 1.0,
+      "convergence_check": {
+        "converged": false,
+        "reason": "insufficient_history",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 10.135862332999977
+    },
+    {
+      "iteration": 1,
+      "nu": 0.1997,
+      "nu_raw": 0.1997,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.798,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.034605146406388676,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.8003
+      },
+      "wall_time_seconds": 11.060085208999908
+    },
+    {
+      "iteration": 2,
+      "nu": 0.1997,
+      "nu_raw": 0.1997,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.798,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.07033144704931282,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.8003
+      },
+      "wall_time_seconds": 9.810358207999911
+    },
+    {
+      "iteration": 3,
+      "nu": 0.1997,
+      "nu_raw": 0.1997,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.798,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.07194826192400972,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.8003
+      },
+      "wall_time_seconds": 4.909495750000019
+    },
+    {
+      "iteration": 4,
+      "nu": 0.3292999999999999,
+      "nu_raw": 0.3292999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.79,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.0665584415584416,
+      "convergence_check": {
+        "converged": false,
+        "reason": "spinning_detected",
+        "confidence": 0.6707000000000001
+      },
+      "wall_time_seconds": 14.708251292
+    },
+    {
+      "iteration": 5,
+      "nu": 0.19869999999999988,
+      "nu_raw": 0.19869999999999988,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.798,
+      "def_proc": 0.8240000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.12561174551386622,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.8013000000000001
+      },
+      "wall_time_seconds": 4.929591958999936
+    },
+    {
+      "iteration": 6,
+      "nu": 0.28269999999999995,
+      "nu_raw": 0.28269999999999995,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.1566068515497553,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.7173
+      },
+      "wall_time_seconds": 5.880844582999998
+    },
+    {
+      "iteration": 7,
+      "nu": 0.1997,
+      "nu_raw": 0.1997,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.798,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.06818181818181823,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.8003
+      },
+      "wall_time_seconds": 4.816012208000075
+    },
+    {
+      "iteration": 8,
+      "nu": 0.27569999999999983,
+      "nu_raw": 0.27569999999999983,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.798,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.0665584415584416,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.7243000000000002
+      },
+      "wall_time_seconds": 10.140043666999986
+    },
+    {
+      "iteration": 9,
+      "nu": 0.1501999999999999,
+      "nu_raw": 0.1501999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.948,
+      "def_proc": 0.808,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.088013411567477,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.8498000000000001
+      },
+      "wall_time_seconds": 3.439857624999945
+    },
+    {
+      "iteration": 10,
+      "nu": 0.1997,
+      "nu_raw": 0.1997,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.798,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.06689536878216118,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.8003
+      },
+      "wall_time_seconds": 5.836427916000048
+    },
+    {
+      "iteration": 11,
+      "nu": 0.3266999999999999,
+      "nu_raw": 0.3266999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.798,
+      "def_proc": 0.6160000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.06689536878216118,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.6733000000000001
+      },
+      "wall_time_seconds": 4.618017791999932
+    }
+  ]
+}

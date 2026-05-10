@@ -1,0 +1,259 @@
+{
+  "task_id": "HumanEval/1",
+  "entry_point": "separate_paren_groups",
+  "strategy": "nu",
+  "seed": 1,
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.7,
+  "completed": true,
+  "iterations": 12,
+  "converged": false,
+  "convergence_reason": "max_iterations",
+  "final_nu": 0.5583467961796623,
+  "final_nu_raw": 0.40369999999999995,
+  "nu_trajectory": [
+    0.2376999999999999,
+    0.5563467961796623,
+    0.5038467961796623,
+    0.6211467961796623,
+    0.4043467961796624,
+    0.6107467961796623,
+    0.4011467961796623,
+    0.6127467961796623,
+    0.6313467961796623,
+    0.48034679617966225,
+    0.6107467961796623,
+    0.5583467961796623
+  ],
+  "nu_raw_trajectory": [
+    0.2376999999999999,
+    0.40169999999999995,
+    0.34919999999999995,
+    0.4664999999999999,
+    0.24970000000000003,
+    0.45609999999999995,
+    0.24649999999999994,
+    0.45809999999999995,
+    0.4766999999999999,
+    0.3256999999999999,
+    0.45609999999999995,
+    0.40369999999999995
+  ],
+  "wall_time_seconds": 165.540933208,
+  "tokens_estimate": 24267,
+  "final_output": "from typing import List\n\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"\n    paren_string = paren_string.replace(' ', '')\n\n    if not paren_string:\n        return []\n\n    result = []\n    current_group = []\n    depth = 0\n\n    for char in paren_string:\n        if char == '(':\n            depth += 1\n            current_group.append(char)\n        elif char == ')':\n            if depth == 0:\n                raise ValueError(\"Unmatched closing parenthesis encountered.\")\n            depth -= 1\n            current_group.append(char)\n            if depth == 0:\n                result.append(''.join(current_group))\n                current_group = []\n        else:\n            raise ValueError(f\"Invalid character '{char}' encountered in input string.\")\n\n    if depth != 0:\n        raise ValueError(\"Unmatched opening parenthesis: input string has unclosed parentheses.\")\n\n    return result",
+  "final_code": "from typing import List\n\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"\n    paren_string = paren_string.replace(' ', '')\n\n    if not paren_string:\n        return []\n\n    result = []\n    current_group = []\n    depth = 0\n\n    for char in paren_string:\n        if char == '(':\n            depth += 1\n            current_group.append(char)\n        elif char == ')':\n            if depth == 0:\n                raise ValueError(\"Unmatched closing parenthesis encountered.\")\n            depth -= 1\n            current_group.append(char)\n            if depth == 0:\n                result.append(''.join(current_group))\n                current_group = []\n        else:\n            raise ValueError(f\"Invalid character '{char}' encountered in input string.\")\n\n    if depth != 0:\n        raise ValueError(\"Unmatched opening parenthesis: input string has unclosed parentheses.\")\n\n    return result",
+  "test_result": {
+    "passed": true,
+    "exit_code": 0,
+    "stderr_tail": "",
+    "timeout": false,
+    "error_class": null
+  },
+  "iteration_records": [
+    {
+      "iteration": 0,
+      "nu": 0.2376999999999999,
+      "nu_raw": 0.2376999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 1.0,
+      "convergence_check": {
+        "converged": false,
+        "reason": "insufficient_history",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 5.0217812080000215
+    },
+    {
+      "iteration": 1,
+      "nu": 0.5563467961796623,
+      "nu_raw": 0.40169999999999995,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.43800000000000006,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.7732339808983116,
+      "output_diff_ratio": 0.17683397683397684,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.4436532038203377
+      },
+      "wall_time_seconds": 7.90575179199999
+    },
+    {
+      "iteration": 2,
+      "nu": 0.5038467961796623,
+      "nu_raw": 0.34919999999999995,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.5880000000000001,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.3405249910104279,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.4961532038203377
+      },
+      "wall_time_seconds": 6.524073291999997
+    },
+    {
+      "iteration": 3,
+      "nu": 0.6211467961796623,
+      "nu_raw": 0.4664999999999999,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.56,
+      "def_ep": 0.43000000000000005,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.8496358703412822,
+      "output_diff_ratio": 0.20507246376811594,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.3788532038203377
+      },
+      "wall_time_seconds": 8.003450958000002
+    },
+    {
+      "iteration": 4,
+      "nu": 0.4043467961796624,
+      "nu_raw": 0.24970000000000003,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.49124949124949124,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.5956532038203376
+      },
+      "wall_time_seconds": 5.694179041000012
+    },
+    {
+      "iteration": 5,
+      "nu": 0.6107467961796623,
+      "nu_raw": 0.45609999999999995,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.42200000000000004,
+      "def_proc": 0.6439999999999999,
+      "conflict_score": 0.8525805531793553,
+      "output_diff_ratio": 0.19383465670247546,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.3892532038203377
+      },
+      "wall_time_seconds": 8.109876084000007
+    },
+    {
+      "iteration": 6,
+      "nu": 0.4011467961796623,
+      "nu_raw": 0.24649999999999994,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.79,
+      "def_ep": 0.79,
+      "def_proc": 0.6439999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.1800658204043254,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.5988532038203377
+      },
+      "wall_time_seconds": 5.6593748749999975
+    },
+    {
+      "iteration": 7,
+      "nu": 0.6127467961796623,
+      "nu_raw": 0.45809999999999995,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.42200000000000004,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.85404943372035,
+      "output_diff_ratio": 0.22396066160035766,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.3872532038203377
+      },
+      "wall_time_seconds": 8.193756459000014
+    },
+    {
+      "iteration": 8,
+      "nu": 0.6313467961796623,
+      "nu_raw": 0.4766999999999999,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.52,
+      "def_ep": 0.43800000000000006,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.876447200620139,
+      "output_diff_ratio": 0.2814274128142741,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.3686532038203377
+      },
+      "wall_time_seconds": 6.806624417000023
+    },
+    {
+      "iteration": 9,
+      "nu": 0.48034679617966225,
+      "nu_raw": 0.3256999999999999,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.10414746543778797,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.5196532038203378
+      },
+      "wall_time_seconds": 4.691265457999975
+    },
+    {
+      "iteration": 10,
+      "nu": 0.6107467961796623,
+      "nu_raw": 0.45609999999999995,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.42200000000000004,
+      "def_proc": 0.6439999999999999,
+      "conflict_score": 0.8825598825292906,
+      "output_diff_ratio": 0.19753086419753085,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.3892532038203377
+      },
+      "wall_time_seconds": 7.817923915999984
+    },
+    {
+      "iteration": 11,
+      "nu": 0.5583467961796623,
+      "nu_raw": 0.40369999999999995,
+      "nu_penalty": 0.15464679617966237,
+      "def_sem": 0.52,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.46399999999999997,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.27295597484276735,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.4416532038203377
+      },
+      "wall_time_seconds": 6.058622582999988
+    }
+  ]
+}

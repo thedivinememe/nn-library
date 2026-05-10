@@ -1,0 +1,259 @@
+{
+  "task_id": "HumanEval/0",
+  "entry_point": "has_close_elements",
+  "strategy": "nu",
+  "seed": 1,
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.7,
+  "completed": true,
+  "iterations": 12,
+  "converged": false,
+  "convergence_reason": "max_iterations",
+  "final_nu": 0.5295621739657892,
+  "final_nu_raw": 0.367,
+  "nu_trajectory": [
+    0.16169999999999995,
+    0.36149999999999993,
+    0.42799999999999994,
+    0.6650621739657891,
+    0.3242621739657891,
+    0.6430621739657891,
+    0.6017621739657892,
+    0.5905621739657891,
+    0.3242621739657891,
+    0.5975621739657893,
+    0.3242621739657891,
+    0.5295621739657892
+  ],
+  "nu_raw_trajectory": [
+    0.16169999999999995,
+    0.36149999999999993,
+    0.42799999999999994,
+    0.5025,
+    0.16169999999999995,
+    0.4804999999999999,
+    0.43920000000000003,
+    0.42799999999999994,
+    0.16169999999999995,
+    0.43500000000000005,
+    0.16169999999999995,
+    0.367
+  ],
+  "wall_time_seconds": 185.600166584,
+  "tokens_estimate": 19657,
+  "final_output": "from typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n    # Analysis of doctest examples to determine comparison operator:\n    # Example 1: [1.0, 2.0, 3.0], threshold=0.5 -> False\n    #   Min distance is |2.0-1.0|=1.0, which is >= 0.5, so no pair is \"closer than 0.5\"\n    # Example 2: [1.0, 2.8, 3.0, 4.0, 5.0, 2.0], threshold=0.3 -> True\n    #   |3.0-2.8|=0.2, which is < 0.3, so a pair exists that is \"closer than 0.3\"\n    # The phrase \"closer to each other than given threshold\" naturally maps to strict\n    # less than (<): distance < threshold. Both examples are consistent with this.\n    # Using <= would not change these examples but would differ at the boundary.\n    # The wording \"closer than\" (not \"as close as or closer than\") supports strict <.\n    \n    for i in range(len(numbers)):\n        for j in range(i + 1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False",
+  "final_code": "from typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n    # Analysis of doctest examples to determine comparison operator:\n    # Example 1: [1.0, 2.0, 3.0], threshold=0.5 -> False\n    #   Min distance is |2.0-1.0|=1.0, which is >= 0.5, so no pair is \"closer than 0.5\"\n    # Example 2: [1.0, 2.8, 3.0, 4.0, 5.0, 2.0], threshold=0.3 -> True\n    #   |3.0-2.8|=0.2, which is < 0.3, so a pair exists that is \"closer than 0.3\"\n    # The phrase \"closer to each other than given threshold\" naturally maps to strict\n    # less than (<): distance < threshold. Both examples are consistent with this.\n    # Using <= would not change these examples but would differ at the boundary.\n    # The wording \"closer than\" (not \"as close as or closer than\") supports strict <.\n    \n    for i in range(len(numbers)):\n        for j in range(i + 1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False",
+  "test_result": {
+    "passed": true,
+    "exit_code": 0,
+    "stderr_tail": "",
+    "timeout": false,
+    "error_class": null
+  },
+  "iteration_records": [
+    {
+      "iteration": 0,
+      "nu": 0.16169999999999995,
+      "nu_raw": 0.16169999999999995,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 1.0,
+      "convergence_check": {
+        "converged": false,
+        "reason": "insufficient_history",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 5.325696582999999
+    },
+    {
+      "iteration": 1,
+      "nu": 0.36149999999999993,
+      "nu_raw": 0.36149999999999993,
+      "nu_penalty": 0.0,
+      "def_sem": 0.56,
+      "def_ep": 0.7300000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.12155591572123181,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6385000000000001
+      },
+      "wall_time_seconds": 6.758255667
+    },
+    {
+      "iteration": 2,
+      "nu": 0.42799999999999994,
+      "nu_raw": 0.42799999999999994,
+      "nu_penalty": 0.0,
+      "def_sem": 0.56,
+      "def_ep": 0.54,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.1872509960159362,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.5720000000000001
+      },
+      "wall_time_seconds": 10.041227207999999
+    },
+    {
+      "iteration": 3,
+      "nu": 0.6650621739657891,
+      "nu_raw": 0.5025,
+      "nu_penalty": 0.1625621739657892,
+      "def_sem": 0.56,
+      "def_ep": 0.37,
+      "def_proc": 0.5760000000000001,
+      "conflict_score": 0.8128108698289457,
+      "output_diff_ratio": 0.3221802482460874,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.33493782603421085
+      },
+      "wall_time_seconds": 7.4299160409999985
+    },
+    {
+      "iteration": 4,
+      "nu": 0.3242621739657891,
+      "nu_raw": 0.16169999999999995,
+      "nu_penalty": 0.16256217396578915,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.3143580012650221,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6757378260342108
+      },
+      "wall_time_seconds": 5.660692500000003
+    },
+    {
+      "iteration": 5,
+      "nu": 0.6430621739657891,
+      "nu_raw": 0.4804999999999999,
+      "nu_penalty": 0.1625621739657892,
+      "def_sem": 0.56,
+      "def_ep": 0.39,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.7993145852232635,
+      "output_diff_ratio": 0.2623302358827734,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.35693782603421087
+      },
+      "wall_time_seconds": 8.627267375000002
+    },
+    {
+      "iteration": 6,
+      "nu": 0.6017621739657892,
+      "nu_raw": 0.43920000000000003,
+      "nu_penalty": 0.1625621739657892,
+      "def_sem": 0.502,
+      "def_ep": 0.56,
+      "def_proc": 0.6559999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.3887795275590551,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.39823782603421076
+      },
+      "wall_time_seconds": 7.478372166
+    },
+    {
+      "iteration": 7,
+      "nu": 0.5905621739657891,
+      "nu_raw": 0.42799999999999994,
+      "nu_penalty": 0.1625621739657892,
+      "def_sem": 0.56,
+      "def_ep": 0.54,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.35209967697277345,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.40943782603421086
+      },
+      "wall_time_seconds": 6.968435584000005
+    },
+    {
+      "iteration": 8,
+      "nu": 0.3242621739657891,
+      "nu_raw": 0.16169999999999995,
+      "nu_penalty": 0.16256217396578915,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.4236842105263158,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6757378260342108
+      },
+      "wall_time_seconds": 5.194842166000001
+    },
+    {
+      "iteration": 9,
+      "nu": 0.5975621739657893,
+      "nu_raw": 0.43500000000000005,
+      "nu_penalty": 0.1625621739657892,
+      "def_sem": 0.56,
+      "def_ep": 0.52,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.19999999999999996,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.40243782603421074
+      },
+      "wall_time_seconds": 7.476441082999997
+    },
+    {
+      "iteration": 10,
+      "nu": 0.3242621739657891,
+      "nu_raw": 0.16169999999999995,
+      "nu_penalty": 0.16256217396578915,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.19999999999999996,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6757378260342108
+      },
+      "wall_time_seconds": 6.577119375000024
+    },
+    {
+      "iteration": 11,
+      "nu": 0.5295621739657892,
+      "nu_raw": 0.367,
+      "nu_penalty": 0.1625621739657892,
+      "def_sem": 0.5800000000000001,
+      "def_ep": 0.56,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.24028776978417266,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.4704378260342108
+      },
+      "wall_time_seconds": 8.603773415999996
+    }
+  ]
+}

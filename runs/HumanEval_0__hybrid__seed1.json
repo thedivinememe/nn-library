@@ -1,0 +1,259 @@
+{
+  "task_id": "HumanEval/0",
+  "entry_point": "has_close_elements",
+  "strategy": "hybrid",
+  "seed": 1,
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.7,
+  "completed": true,
+  "iterations": 12,
+  "converged": false,
+  "convergence_reason": "max_iterations",
+  "final_nu": 0.5978262172803654,
+  "final_nu_raw": 0.43500000000000005,
+  "nu_trajectory": [
+    0.16169999999999995,
+    0.3595999999999999,
+    0.43500000000000005,
+    0.6624462172803653,
+    0.41252621728036537,
+    0.6433262172803653,
+    0.3245262172803653,
+    0.5908262172803653,
+    0.6763262172803655,
+    0.5103262172803653,
+    0.4193262172803653,
+    0.5978262172803654
+  ],
+  "nu_raw_trajectory": [
+    0.16169999999999995,
+    0.3595999999999999,
+    0.43500000000000005,
+    0.49961999999999995,
+    0.24970000000000003,
+    0.4804999999999999,
+    0.16169999999999995,
+    0.42799999999999994,
+    0.5135000000000001,
+    0.3474999999999999,
+    0.25649999999999995,
+    0.43500000000000005
+  ],
+  "wall_time_seconds": 153.853220667,
+  "tokens_estimate": 20218,
+  "final_output": "From the typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n    for i in range(len(numbers)):\n        for j in range(i + 1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False",
+  "final_code": "From the typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n    for i in range(len(numbers)):\n        for j in range(i + 1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False",
+  "test_result": {
+    "passed": false,
+    "exit_code": 1,
+    "stderr_tail": "  File \"<string>\", line 1\n    From the typing import List\n         ^\nSyntaxError: invalid syntax\n",
+    "timeout": false,
+    "error_class": "SyntaxError"
+  },
+  "iteration_records": [
+    {
+      "iteration": 0,
+      "nu": 0.16169999999999995,
+      "nu_raw": 0.16169999999999995,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 1.0,
+      "convergence_check": {
+        "converged": false,
+        "reason": "insufficient_history",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 6.717771416
+    },
+    {
+      "iteration": 1,
+      "nu": 0.3595999999999999,
+      "nu_raw": 0.3595999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.5720000000000001,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.24395604395604398,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.6404000000000001
+      },
+      "wall_time_seconds": 6.866832374999998
+    },
+    {
+      "iteration": 2,
+      "nu": 0.43500000000000005,
+      "nu_raw": 0.43500000000000005,
+      "nu_penalty": 0.0,
+      "def_sem": 0.56,
+      "def_ep": 0.52,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.4846225535880708,
+      "convergence_check": {
+        "converged": false,
+        "reason": "spinning_detected",
+        "confidence": 0.565
+      },
+      "wall_time_seconds": 8.092089542
+    },
+    {
+      "iteration": 3,
+      "nu": 0.6624462172803653,
+      "nu_raw": 0.49961999999999995,
+      "nu_penalty": 0.1628262172803654,
+      "def_sem": 0.5092000000000001,
+      "def_ep": 0.42200000000000004,
+      "def_proc": 0.5960000000000001,
+      "conflict_score": 0.8141310864018266,
+      "output_diff_ratio": 0.303030303030303,
+      "convergence_check": {
+        "converged": false,
+        "reason": "spinning_detected",
+        "confidence": 0.33755378271963465
+      },
+      "wall_time_seconds": 7.808492208000004
+    },
+    {
+      "iteration": 4,
+      "nu": 0.41252621728036537,
+      "nu_raw": 0.24970000000000003,
+      "nu_penalty": 0.16282621728036534,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.3473810957254666,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.5874737827196346
+      },
+      "wall_time_seconds": 7.072835082999994
+    },
+    {
+      "iteration": 5,
+      "nu": 0.6433262172803653,
+      "nu_raw": 0.4804999999999999,
+      "nu_penalty": 0.1628262172803654,
+      "def_sem": 0.56,
+      "def_ep": 0.39,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.8317061180005879,
+      "output_diff_ratio": 0.2371569317382125,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.3566737827196347
+      },
+      "wall_time_seconds": 9.321724291999999
+    },
+    {
+      "iteration": 6,
+      "nu": 0.3245262172803653,
+      "nu_raw": 0.16169999999999995,
+      "nu_penalty": 0.16282621728036534,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.2371569317382125,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.6754737827196347
+      },
+      "wall_time_seconds": 6.042581542000008
+    },
+    {
+      "iteration": 7,
+      "nu": 0.5908262172803653,
+      "nu_raw": 0.42799999999999994,
+      "nu_penalty": 0.1628262172803654,
+      "def_sem": 0.56,
+      "def_ep": 0.54,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.26596604688763137,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.40917378271963467
+      },
+      "wall_time_seconds": 7.716939041999993
+    },
+    {
+      "iteration": 8,
+      "nu": 0.6763262172803655,
+      "nu_raw": 0.5135000000000001,
+      "nu_penalty": 0.1628262172803654,
+      "def_sem": 0.37,
+      "def_ep": 0.39,
+      "def_proc": 0.808,
+      "conflict_score": 0.8285501098141985,
+      "output_diff_ratio": 0.4881149806522941,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.32367378271963454
+      },
+      "wall_time_seconds": 9.944607417
+    },
+    {
+      "iteration": 9,
+      "nu": 0.5103262172803653,
+      "nu_raw": 0.3474999999999999,
+      "nu_penalty": 0.1628262172803654,
+      "def_sem": 0.56,
+      "def_ep": 0.7700000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.33574007220216606,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.4896737827196347
+      },
+      "wall_time_seconds": 5.935730458999998
+    },
+    {
+      "iteration": 10,
+      "nu": 0.4193262172803653,
+      "nu_raw": 0.25649999999999995,
+      "nu_penalty": 0.16282621728036534,
+      "def_sem": 0.56,
+      "def_ep": 0.7700000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.30884184308841844,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.5806737827196347
+      },
+      "wall_time_seconds": 7.07221662500001
+    },
+    {
+      "iteration": 11,
+      "nu": 0.5978262172803654,
+      "nu_raw": 0.43500000000000005,
+      "nu_penalty": 0.1628262172803654,
+      "def_sem": 0.56,
+      "def_ep": 0.52,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.21896444167186524,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.40217378271963455
+      },
+      "wall_time_seconds": 8.302534874999992
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "task_id": "HumanEval/1",
+  "entry_point": "separate_paren_groups",
+  "strategy": "hybrid",
+  "seed": 1,
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.7,
+  "completed": true,
+  "iterations": 12,
+  "converged": false,
+  "convergence_reason": "max_iterations",
+  "final_nu": 0.6047864096489339,
+  "final_nu_raw": 0.4131,
+  "nu_trajectory": [
+    0.3932,
+    0.6477864096489339,
+    0.5493864096489338,
+    0.646786409648934,
+    0.6028864096489339,
+    0.5812864096489339,
+    0.5503864096489339,
+    0.7002864096489338,
+    0.5493864096489338,
+    0.5916864096489338,
+    0.5493864096489338,
+    0.6047864096489339
+  ],
+  "nu_raw_trajectory": [
+    0.3932,
+    0.45609999999999995,
+    0.3576999999999999,
+    0.45510000000000006,
+    0.4112,
+    0.38959999999999995,
+    0.3587,
+    0.5085999999999999,
+    0.3576999999999999,
+    0.3999999999999999,
+    0.3576999999999999,
+    0.4131
+  ],
+  "wall_time_seconds": 189.06024175,
+  "tokens_estimate": 24274,
+  "final_output": "from typing import List\n\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"\n    result = []\n    current_group = []\n    depth = 0\n\n    for char in paren_string:\n        if char == ' ':\n            continue\n        elif char == '(':\n            depth += 1\n            current_group.append(char)\n        elif char == ')':\n            depth -= 1\n            current_group.append(char)\n            if depth == 0:\n                result.append(''.join(current_group))\n                current_group = []\n\n    return result",
+  "final_code": "from typing import List\n\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"\n    result = []\n    current_group = []\n    depth = 0\n\n    for char in paren_string:\n        if char == ' ':\n            continue\n        elif char == '(':\n            depth += 1\n            current_group.append(char)\n        elif char == ')':\n            depth -= 1\n            current_group.append(char)\n            if depth == 0:\n                result.append(''.join(current_group))\n                current_group = []\n\n    return result",
+  "test_result": {
+    "passed": true,
+    "exit_code": 0,
+    "stderr_tail": "",
+    "timeout": false,
+    "error_class": null
+  },
+  "iteration_records": [
+    {
+      "iteration": 0,
+      "nu": 0.3932,
+      "nu_raw": 0.3932,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.5880000000000001,
+      "def_proc": 0.6439999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 1.0,
+      "convergence_check": {
+        "converged": false,
+        "reason": "insufficient_history",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 6.127272250000004
+    },
+    {
+      "iteration": 1,
+      "nu": 0.6477864096489339,
+      "nu_raw": 0.45609999999999995,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.42200000000000004,
+      "def_proc": 0.6439999999999999,
+      "conflict_score": 0.9584320482446694,
+      "output_diff_ratio": 0.1904953685058397,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.35221359035106614
+      },
+      "wall_time_seconds": 7.806655209000013
+    },
+    {
+      "iteration": 2,
+      "nu": 0.5493864096489338,
+      "nu_raw": 0.3576999999999999,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.52,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.26187473728457333,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.4506135903510662
+      },
+      "wall_time_seconds": 5.032470165999996
+    },
+    {
+      "iteration": 3,
+      "nu": 0.646786409648934,
+      "nu_raw": 0.45510000000000006,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.42200000000000004,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.9382276400493081,
+      "output_diff_ratio": 0.21830985915492962,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.35321359035106603
+      },
+      "wall_time_seconds": 7.788489834000018
+    },
+    {
+      "iteration": 4,
+      "nu": 0.6028864096489339,
+      "nu_raw": 0.4112,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.52,
+      "def_ep": 0.6280000000000001,
+      "def_proc": 0.6439999999999999,
+      "conflict_score": 0.9401821398152392,
+      "output_diff_ratio": 0.4571678321678322,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.3971135903510661
+      },
+      "wall_time_seconds": 6.618855083
+    },
+    {
+      "iteration": 5,
+      "nu": 0.5812864096489339,
+      "nu_raw": 0.38959999999999995,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.6120000000000001,
+      "def_proc": 0.6439999999999999,
+      "conflict_score": 0.9397031371767217,
+      "output_diff_ratio": 0.49542124542124544,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.41871359035106614
+      },
+      "wall_time_seconds": 6.058107041999989
+    },
+    {
+      "iteration": 6,
+      "nu": 0.5503864096489339,
+      "nu_raw": 0.3587,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.52,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6439999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.13099630996309963,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.4496135903510661
+      },
+      "wall_time_seconds": 5.12021387499999
+    },
+    {
+      "iteration": 7,
+      "nu": 0.7002864096489338,
+      "nu_raw": 0.5085999999999999,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.2720000000000001,
+      "def_proc": 0.6439999999999999,
+      "conflict_score": 0.9523297105348106,
+      "output_diff_ratio": 0.27764705882352936,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.29971359035106615
+      },
+      "wall_time_seconds": 13.011591624999994
+    },
+    {
+      "iteration": 8,
+      "nu": 0.5493864096489338,
+      "nu_raw": 0.3576999999999999,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.52,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.29357087529047254,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.4506135903510662
+      },
+      "wall_time_seconds": 10.642792041000007
+    },
+    {
+      "iteration": 9,
+      "nu": 0.5916864096489338,
+      "nu_raw": 0.3999999999999999,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.56,
+      "def_ep": 0.6200000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.9365664318890506,
+      "output_diff_ratio": 0.23413198823034886,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.4083135903510662
+      },
+      "wall_time_seconds": 7.154641207999987
+    },
+    {
+      "iteration": 10,
+      "nu": 0.5493864096489338,
+      "nu_raw": 0.3576999999999999,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.52,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.5394957983193278,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.4506135903510662
+      },
+      "wall_time_seconds": 6.154776292000008
+    },
+    {
+      "iteration": 11,
+      "nu": 0.6047864096489339,
+      "nu_raw": 0.4131,
+      "nu_penalty": 0.1916864096489339,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.42200000000000004,
+      "def_proc": 0.8160000000000001,
+      "conflict_score": 0.9267609373354874,
+      "output_diff_ratio": 0.3322502030869212,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.39521359035106607
+      },
+      "wall_time_seconds": 11.781139374999952
+    }
+  ]
+}

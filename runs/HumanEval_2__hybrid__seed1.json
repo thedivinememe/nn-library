@@ -1,0 +1,259 @@
+{
+  "task_id": "HumanEval/2",
+  "entry_point": "truncate_number",
+  "strategy": "hybrid",
+  "seed": 1,
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.7,
+  "completed": true,
+  "iterations": 12,
+  "converged": false,
+  "convergence_reason": "max_iterations",
+  "final_nu": 0.33964142625802196,
+  "final_nu_raw": 0.1855,
+  "nu_trajectory": [
+    0.3287,
+    0.45864142625802196,
+    0.4348414262580219,
+    0.4348414262580219,
+    0.5381414262580219,
+    0.4368414262580219,
+    0.511141426258022,
+    0.5381414262580219,
+    0.5381414262580219,
+    0.4932414262580219,
+    0.3158414262580219,
+    0.33964142625802196
+  ],
+  "nu_raw_trajectory": [
+    0.3287,
+    0.3045,
+    0.28069999999999995,
+    0.28069999999999995,
+    0.3839999999999999,
+    0.28269999999999995,
+    0.357,
+    0.3839999999999999,
+    0.3839999999999999,
+    0.33909999999999996,
+    0.16169999999999995,
+    0.1855
+  ],
+  "wall_time_seconds": 206.81505754200003,
+  "tokens_estimate": 15324,
+  "final_output": "```python\ndef truncate_number(number: float) -> float:\n    \"\"\" Given a positive floating point number, it can be decomposed into\n    and integer part (largest integer smaller than given number) and decimals\n    (leftover part always smaller than 1).\n\n    Return the decimal part of the number.\n    >>> truncate_number(3.5)\n    0.5\n    \"\"\"\n    return number % 1\n```",
+  "final_code": "def truncate_number(number: float) -> float:\n    \"\"\" Given a positive floating point number, it can be decomposed into\n    and integer part (largest integer smaller than given number) and decimals\n    (leftover part always smaller than 1).\n\n    Return the decimal part of the number.\n    >>> truncate_number(3.5)\n    0.5\n    \"\"\"\n    return number % 1",
+  "test_result": {
+    "passed": true,
+    "exit_code": 0,
+    "stderr_tail": "",
+    "timeout": false,
+    "error_class": null
+  },
+  "iteration_records": [
+    {
+      "iteration": 0,
+      "nu": 0.3287,
+      "nu_raw": 0.3287,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 1.0,
+      "convergence_check": {
+        "converged": false,
+        "reason": "insufficient_history",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 5.980438708000008
+    },
+    {
+      "iteration": 1,
+      "nu": 0.45864142625802196,
+      "nu_raw": 0.3045,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.79,
+      "def_ep": 0.37,
+      "def_proc": 1.0,
+      "conflict_score": 0.7707071312901097,
+      "output_diff_ratio": 0.2983870967741935,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.541358573741978
+      },
+      "wall_time_seconds": 6.571705624999993
+    },
+    {
+      "iteration": 2,
+      "nu": 0.4348414262580219,
+      "nu_raw": 0.28069999999999995,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.8280000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.30707070707070705,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.5651585737419781
+      },
+      "wall_time_seconds": 12.596783875000028
+    },
+    {
+      "iteration": 3,
+      "nu": 0.4348414262580219,
+      "nu_raw": 0.28069999999999995,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.8280000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.20594965675057209,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.5651585737419781
+      },
+      "wall_time_seconds": 9.893905500000017
+    },
+    {
+      "iteration": 4,
+      "nu": 0.5381414262580219,
+      "nu_raw": 0.3839999999999999,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.6200000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.7676806448517415,
+      "output_diff_ratio": 0.22660653889515214,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.46185857374197814
+      },
+      "wall_time_seconds": 6.621191667000005
+    },
+    {
+      "iteration": 5,
+      "nu": 0.4368414262580219,
+      "nu_raw": 0.28269999999999995,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.01754385964912286,
+      "convergence_check": {
+        "converged": false,
+        "reason": "in_progress",
+        "confidence": 0.5631585737419781
+      },
+      "wall_time_seconds": 5.981438458000014
+    },
+    {
+      "iteration": 6,
+      "nu": 0.511141426258022,
+      "nu_raw": 0.357,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.56,
+      "def_proc": 0.8280000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.1967592592592593,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.48885857374197805
+      },
+      "wall_time_seconds": 6.422326999999996
+    },
+    {
+      "iteration": 7,
+      "nu": 0.5381414262580219,
+      "nu_raw": 0.3839999999999999,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.6200000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.7822044756995138,
+      "output_diff_ratio": 0.21778791334093506,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.46185857374197814
+      },
+      "wall_time_seconds": 5.716942249999988
+    },
+    {
+      "iteration": 8,
+      "nu": 0.5381414262580219,
+      "nu_raw": 0.3839999999999999,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.6200000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.800993074611263,
+      "output_diff_ratio": 0.01754385964912286,
+      "convergence_check": {
+        "converged": false,
+        "reason": "spinning_detected",
+        "confidence": 0.46185857374197814
+      },
+      "wall_time_seconds": 7.030905625000003
+    },
+    {
+      "iteration": 9,
+      "nu": 0.4932414262580219,
+      "nu_raw": 0.33909999999999996,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.7620000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.0679094540612517,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.5067585737419781
+      },
+      "wall_time_seconds": 7.018791166999961
+    },
+    {
+      "iteration": 10,
+      "nu": 0.3158414262580219,
+      "nu_raw": 0.16169999999999995,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.0679094540612517,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.6841585737419781
+      },
+      "wall_time_seconds": 4.835726542000032
+    },
+    {
+      "iteration": 11,
+      "nu": 0.33964142625802196,
+      "nu_raw": 0.1855,
+      "nu_penalty": 0.15414142625802196,
+      "def_sem": 0.79,
+      "def_ep": 0.7100000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.2456521739130435,
+      "convergence_check": {
+        "converged": false,
+        "reason": "oscillation_detected",
+        "confidence": 0.660358573741978
+      },
+      "wall_time_seconds": 4.61509137500002
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "task_id": "HumanEval/2",
+  "entry_point": "truncate_number",
+  "strategy": "nu",
+  "seed": 1,
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.7,
+  "completed": true,
+  "iterations": 12,
+  "converged": false,
+  "convergence_reason": "max_iterations",
+  "final_nu": 0.5450454288287602,
+  "final_nu_raw": 0.4101999999999999,
+  "nu_trajectory": [
+    0.25549999999999984,
+    0.2985,
+    0.24770000000000003,
+    0.28269999999999995,
+    0.39404542882876015,
+    0.3353454288287602,
+    0.3725454288287602,
+    0.2965454288287602,
+    0.3753454288287602,
+    0.4155454288287602,
+    0.47394542882876023,
+    0.5450454288287602
+  ],
+  "nu_raw_trajectory": [
+    0.25549999999999984,
+    0.2985,
+    0.24770000000000003,
+    0.28269999999999995,
+    0.2591999999999999,
+    0.2004999999999999,
+    0.2376999999999999,
+    0.16169999999999995,
+    0.24049999999999994,
+    0.28069999999999995,
+    0.33909999999999996,
+    0.4101999999999999
+  ],
+  "wall_time_seconds": 129.51463324999997,
+  "tokens_estimate": 14794,
+  "final_output": "```python\nimport math\n\ndef truncate_number(number: float) -> float:\n    \"\"\" Given a positive floating point number, it can be decomposed into\n    and integer part (largest integer smaller than given number) and decimals\n    (leftover part always smaller than 1).\n\n    Return the decimal part of the number.\n    >>> truncate_number(3.5)\n    0.5\n    \"\"\"\n    return math.modf(number)[0]\n```",
+  "final_code": "import math\n\ndef truncate_number(number: float) -> float:\n    \"\"\" Given a positive floating point number, it can be decomposed into\n    and integer part (largest integer smaller than given number) and decimals\n    (leftover part always smaller than 1).\n\n    Return the decimal part of the number.\n    >>> truncate_number(3.5)\n    0.5\n    \"\"\"\n    return math.modf(number)[0]",
+  "test_result": {
+    "passed": true,
+    "exit_code": 0,
+    "stderr_tail": "",
+    "timeout": false,
+    "error_class": null
+  },
+  "iteration_records": [
+    {
+      "iteration": 0,
+      "nu": 0.25549999999999984,
+      "nu_raw": 0.25549999999999984,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.7700000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 1.0,
+      "convergence_check": {
+        "converged": false,
+        "reason": "insufficient_history",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 6.50579783400002
+    },
+    {
+      "iteration": 1,
+      "nu": 0.2985,
+      "nu_raw": 0.2985,
+      "nu_penalty": 0.0,
+      "def_sem": 0.5800000000000001,
+      "def_ep": 0.7500000000000001,
+      "def_proc": 0.8280000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.08994708994709,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.7015
+      },
+      "wall_time_seconds": 5.843942625000011
+    },
+    {
+      "iteration": 2,
+      "nu": 0.24770000000000003,
+      "nu_raw": 0.24770000000000003,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6559999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.09018567639257291,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.7523
+      },
+      "wall_time_seconds": 6.481117832999985
+    },
+    {
+      "iteration": 3,
+      "nu": 0.28269999999999995,
+      "nu_raw": 0.28269999999999995,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.09855453350854138,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.7173
+      },
+      "wall_time_seconds": 7.020617125000001
+    },
+    {
+      "iteration": 4,
+      "nu": 0.39404542882876015,
+      "nu_raw": 0.2591999999999999,
+      "nu_penalty": 0.13484542882876027,
+      "def_sem": 0.79,
+      "def_ep": 0.6280000000000001,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.6742271441438011,
+      "output_diff_ratio": 0.1136950904392765,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6059545711712399
+      },
+      "wall_time_seconds": 5.634876582999993
+    },
+    {
+      "iteration": 5,
+      "nu": 0.3353454288287602,
+      "nu_raw": 0.2004999999999999,
+      "nu_penalty": 0.13484542882876027,
+      "def_sem": 0.79,
+      "def_ep": 0.79,
+      "def_proc": 0.8280000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.01754385964912286,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6646545711712398
+      },
+      "wall_time_seconds": 5.427256999999997
+    },
+    {
+      "iteration": 6,
+      "nu": 0.3725454288287602,
+      "nu_raw": 0.2376999999999999,
+      "nu_penalty": 0.13484542882876027,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.05804749340369397,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6274545711712398
+      },
+      "wall_time_seconds": 5.269587083999994
+    },
+    {
+      "iteration": 7,
+      "nu": 0.2965454288287602,
+      "nu_raw": 0.16169999999999995,
+      "nu_penalty": 0.13484542882876027,
+      "def_sem": 0.79,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.05804749340369397,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.7034545711712398
+      },
+      "wall_time_seconds": 5.739147749999972
+    },
+    {
+      "iteration": 8,
+      "nu": 0.3753454288287602,
+      "nu_raw": 0.24049999999999994,
+      "nu_penalty": 0.13484542882876027,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7700000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.0679094540612517,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6246545711712398
+      },
+      "wall_time_seconds": 4.7302230829999985
+    },
+    {
+      "iteration": 9,
+      "nu": 0.4155454288287602,
+      "nu_raw": 0.28069999999999995,
+      "nu_penalty": 0.13484542882876027,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.8280000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.0679094540612517,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.5844545711712398
+      },
+      "wall_time_seconds": 10.34570500000001
+    },
+    {
+      "iteration": 10,
+      "nu": 0.47394542882876023,
+      "nu_raw": 0.33909999999999996,
+      "nu_penalty": 0.13484542882876027,
+      "def_sem": 0.5880000000000001,
+      "def_ep": 0.7620000000000001,
+      "def_proc": 0.6359999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.0679094540612517,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.5260545711712398
+      },
+      "wall_time_seconds": 6.541752207999991
+    },
+    {
+      "iteration": 11,
+      "nu": 0.5450454288287602,
+      "nu_raw": 0.4101999999999999,
+      "nu_penalty": 0.13484542882876027,
+      "def_sem": 0.52,
+      "def_ep": 0.6280000000000001,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.6568578740136441,
+      "output_diff_ratio": 0.0679094540612517,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.45495457117123983
+      },
+      "wall_time_seconds": 12.331971915999986
+    }
+  ]
+}

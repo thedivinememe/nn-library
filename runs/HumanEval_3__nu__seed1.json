@@ -1,0 +1,259 @@
+{
+  "task_id": "HumanEval/3",
+  "entry_point": "below_zero",
+  "strategy": "nu",
+  "seed": 1,
+  "model": "claude-sonnet-4-6",
+  "temperature": 0.7,
+  "completed": true,
+  "iterations": 12,
+  "converged": false,
+  "convergence_reason": "max_iterations",
+  "final_nu": 0.3256999999999999,
+  "final_nu_raw": 0.3256999999999999,
+  "nu_trajectory": [
+    0.24069999999999991,
+    0.3921999999999999,
+    0.15749999999999997,
+    0.28269999999999995,
+    0.2306999999999999,
+    0.2306999999999999,
+    0.3041999999999999,
+    0.24350000000000005,
+    0.34919999999999995,
+    0.2306999999999999,
+    0.2306999999999999,
+    0.3256999999999999
+  ],
+  "nu_raw_trajectory": [
+    0.24069999999999991,
+    0.3921999999999999,
+    0.15749999999999997,
+    0.28269999999999995,
+    0.2306999999999999,
+    0.2306999999999999,
+    0.3041999999999999,
+    0.24350000000000005,
+    0.34919999999999995,
+    0.2306999999999999,
+    0.2306999999999999,
+    0.3256999999999999
+  ],
+  "wall_time_seconds": 158.43660508299996,
+  "tokens_estimate": 19276,
+  "final_output": "from typing import List\n\n\ndef below_zero(operations: List[int]) -> bool:\n    \"\"\" You're given a list of deposit and withdrawal operations on a bank account that starts with\n    zero balance. Your task is to detect if at any point the balance of account falls below zero, and\n    at that point function should return True. Otherwise it should return False.\n    \n    'Below zero' is interpreted as strictly less than zero (balance < 0).\n    A balance of exactly zero is not considered below zero.\n    \n    >>> below_zero([1, 2, 3])\n    False\n    >>> below_zero([1, 2, -4, 5])\n    True\n    >>> below_zero([1, -1])\n    False\n    >>> below_zero([])\n    False\n    \"\"\"\n    balance = 0\n    for operation in operations:\n        balance += operation\n        if balance < 0:\n            return True\n    return False",
+  "final_code": "from typing import List\n\n\ndef below_zero(operations: List[int]) -> bool:\n    \"\"\" You're given a list of deposit and withdrawal operations on a bank account that starts with\n    zero balance. Your task is to detect if at any point the balance of account falls below zero, and\n    at that point function should return True. Otherwise it should return False.\n    \n    'Below zero' is interpreted as strictly less than zero (balance < 0).\n    A balance of exactly zero is not considered below zero.\n    \n    >>> below_zero([1, 2, 3])\n    False\n    >>> below_zero([1, 2, -4, 5])\n    True\n    >>> below_zero([1, -1])\n    False\n    >>> below_zero([])\n    False\n    \"\"\"\n    balance = 0\n    for operation in operations:\n        balance += operation\n        if balance < 0:\n            return True\n    return False",
+  "test_result": {
+    "passed": true,
+    "exit_code": 0,
+    "stderr_tail": "",
+    "timeout": false,
+    "error_class": null
+  },
+  "iteration_records": [
+    {
+      "iteration": 0,
+      "nu": 0.24069999999999991,
+      "nu_raw": 0.24069999999999991,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.798,
+      "def_proc": 0.6559999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 1.0,
+      "convergence_check": {
+        "converged": false,
+        "reason": "insufficient_history",
+        "confidence": 0.0
+      },
+      "wall_time_seconds": 6.456147874999999
+    },
+    {
+      "iteration": 1,
+      "nu": 0.3921999999999999,
+      "nu_raw": 0.3921999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.5880000000000001,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.22860791826309068,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6078000000000001
+      },
+      "wall_time_seconds": 7.11181966700002
+    },
+    {
+      "iteration": 2,
+      "nu": 0.15749999999999997,
+      "nu_raw": 0.15749999999999997,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.79,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.22860791826309068,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.8425
+      },
+      "wall_time_seconds": 9.64885099999998
+    },
+    {
+      "iteration": 3,
+      "nu": 0.28269999999999995,
+      "nu_raw": 0.28269999999999995,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.13590844062947072,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.7173
+      },
+      "wall_time_seconds": 5.735322499999995
+    },
+    {
+      "iteration": 4,
+      "nu": 0.2306999999999999,
+      "nu_raw": 0.2306999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.798,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.17132867132867136,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.7693000000000001
+      },
+      "wall_time_seconds": 5.302640499999995
+    },
+    {
+      "iteration": 5,
+      "nu": 0.2306999999999999,
+      "nu_raw": 0.2306999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.798,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.20838794233289648,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.7693000000000001
+      },
+      "wall_time_seconds": 6.043409666999992
+    },
+    {
+      "iteration": 6,
+      "nu": 0.3041999999999999,
+      "nu_raw": 0.3041999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.5880000000000001,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.30454807138744966,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6958000000000001
+      },
+      "wall_time_seconds": 5.658698500000014
+    },
+    {
+      "iteration": 7,
+      "nu": 0.24350000000000005,
+      "nu_raw": 0.24350000000000005,
+      "nu_penalty": 0.0,
+      "def_sem": 0.79,
+      "def_ep": 0.79,
+      "def_proc": 0.6559999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.30454807138744966,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.7565
+      },
+      "wall_time_seconds": 10.350955208000016
+    },
+    {
+      "iteration": 8,
+      "nu": 0.34919999999999995,
+      "nu_raw": 0.34919999999999995,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.5880000000000001,
+      "def_proc": 0.8200000000000001,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.27185051235684143,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6508
+      },
+      "wall_time_seconds": 10.803073790999974
+    },
+    {
+      "iteration": 9,
+      "nu": 0.2306999999999999,
+      "nu_raw": 0.2306999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.798,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.2826747720364742,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.7693000000000001
+      },
+      "wall_time_seconds": 5.3072332499999675
+    },
+    {
+      "iteration": 10,
+      "nu": 0.2306999999999999,
+      "nu_raw": 0.2306999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.798,
+      "def_proc": 1.0,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.13868613138686137,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.7693000000000001
+      },
+      "wall_time_seconds": 4.877032416999953
+    },
+    {
+      "iteration": 11,
+      "nu": 0.3256999999999999,
+      "nu_raw": 0.3256999999999999,
+      "nu_penalty": 0.0,
+      "def_sem": 0.6000000000000001,
+      "def_ep": 0.7780000000000001,
+      "def_proc": 0.6479999999999999,
+      "conflict_score": 0.0,
+      "output_diff_ratio": 0.13868613138686137,
+      "convergence_check": {
+        "converged": false,
+        "reason": "nu_above_threshold",
+        "confidence": 0.6743000000000001
+      },
+      "wall_time_seconds": 6.786787875000016
+    }
+  ]
+}
